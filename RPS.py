@@ -25,6 +25,11 @@ class Game:
         player = robot = 0
         while rounds != 0:
             choice = int(input("\nPlease enter your choice. Type 0 for Rock, 1 for Paper or 2 for Scissors: "))
+
+            if (choice not in [0,1,2]):
+                print("\nInvalid choice. Please try again.")
+                self.computer(rounds)
+
             comp = random.randint(0,2)
            
             win = self.check_win(choice, comp)
@@ -48,6 +53,10 @@ class Game:
             choice1 = int(input("\nPlayer1 enter your choice. Type 0 for Rock, 1 for Paper or 2 for Scissors: "))
             choice2 = int(input("\nPlayer2 enter your choice. Type 0 for Rock, 1 for Paper or 2 for Scissors: "))
            
+            if ((choice1 not in [0,1,2]) or (choice2 not in [0,1,2])):
+                print("\nInvalid choice(s). Please try again.")
+                self.player(rounds)
+            
             win = self.check_win(choice1, choice2)
             if(win == 0):
                 print("\nDraw!")
@@ -79,10 +88,10 @@ class Game:
         print("\nGood game.")
         choice = input("Would you like to play again? 'Y' or 'N':  ")
 
-        if(choice == 'Y'):
+        if(choice == 'y' or choice == 'Y'):
             main()
-        
-        print("Thanks for playing. Good bye.")
+        else:
+            print("Thanks for playing. Good bye.")
 
 
 def main():
