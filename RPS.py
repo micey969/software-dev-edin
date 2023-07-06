@@ -4,10 +4,12 @@ class Game:
     game_choice = ["Rock", "Paper", "Scissors"]
 
     def __init__(self):
+        # Starts the game
         self.opponent()
 
 
     def opponent(self):
+        # Sets up the play conditions for the game; opponent and number of rounds
         option = int(input("\nWho would like to play against? 1 - Player, 2 - Computer: "))
         
         if (option != 1 and option != 2):
@@ -24,6 +26,8 @@ class Game:
 
 
     def computer(self, rounds):
+        # Function for the human vs computer game play. Takes in the number of rounds and outputs the winner for each round
+        # Also output the final winner at the end of the game
         player = robot = 0
         while rounds != 0:
             choice = int(input("\nPlease enter your choice. Type 0 for Rock, 1 for Paper or 2 for Scissors: "))
@@ -57,6 +61,8 @@ class Game:
 
 
     def player(self, rounds):
+        # Function for the two human players game play. Takes in the number of rounds and outputs the winner for each round
+        # Also output the final winner at the end of the game
         player1 = player2 = 0
         while rounds != 0:
             choice1 = int(input("\nPlayer1 enter your choice. Type 0 for Rock, 1 for Paper or 2 for Scissors: "))
@@ -89,6 +95,8 @@ class Game:
 
    
     def check_win(self, opt1, opt2):
+        # Checks the conditions for a win or draw. Rocks beats Scissors, Scissors beats Paper and Paper beats Rock
+        # Returns 0 if there is a draw, 1 if the first player wins or 2 if the second player wins
         if (opt1 == opt2):
             return 0
         if ((opt1 and opt2 < 2) and (opt1 > opt2)):
@@ -101,6 +109,7 @@ class Game:
 
 
     def replay(self):
+        # Based on user input, either starts a new game or ends the program
         print("\nGood game.")
         choice = input("Would you like to play again? 'Y' or 'N':  ")
 
@@ -111,6 +120,7 @@ class Game:
 
 
 def main():
+    # Welcomes the player and starts a new game object
     print("Welcome to Rock, Paper, Scissors")
     game_play = Game()
 
