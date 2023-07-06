@@ -1,9 +1,11 @@
 import random
 
 class Game:
+    game_choice = ["Rock", "Paper", "Scissors"]
+
     def __init__(self):
         # Starts the game
-        self.start = self.opponent()
+        self.opponent()
 
 
     def opponent(self):
@@ -37,6 +39,8 @@ class Game:
             comp = random.randint(0,2)
            
             win = self.check_win(choice, comp)
+            print(f"\nYou chose {self.game_choice[choice]} and the computer chose {self.game_choice[comp]}")
+
             if(win == 0):
                 print("\nDraw!")
             elif(win==1):
@@ -69,6 +73,8 @@ class Game:
                 self.player(rounds)
             
             win = self.check_win(choice1, choice2)
+            print(f"\nPlayer1 chose {self.game_choice[choice1]} and Player2 chose {self.game_choice[choice2]}")
+
             if(win == 0):
                 print("\nDraw!")
             elif(win==1):
