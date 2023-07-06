@@ -43,7 +43,12 @@ class Game:
                 robot+=1
             rounds-=1
 
-        print(f"\nYou win: {player} - {robot}") if (player > robot) else print(f"\nComputer wins: {robot} - {player}")
+        if (player > robot):
+            print(f"\nYou win: {player} - {robot}")  
+        elif (player == robot):
+            print(f"\nIt's a tie: {player} - {robot}")
+        else:
+            print(f"\nComputer wins: {robot} - {player}")
         self.replay()
 
 
@@ -67,8 +72,13 @@ class Game:
                 print("\nPlayer2 wins!")
                 player2+=1
             rounds-=1
-
-        print(f"\nPlayer1 win: {player1} - {player2}") if (player1 > player2) else print(f"\nPlayer2 wins: {player2} - {player1}")
+        
+        if (player1 > player2):
+            print(f"\nPlayer1 win: {player1} - {player2}")  
+        elif (player1 == player2):
+            print(f"\nIt's a tie: {player1} - {player2}")
+        else:
+            print(f"\nPlayer2 wins: {player2} - {player1}")
         self.replay()
 
    
@@ -79,7 +89,7 @@ class Game:
             return 1
         if ((opt1 and opt2 > 0) and (opt1 > opt2)):
             return 1
-        if ((1 < opt1 and opt2 < 1) and (opt1 < opt2)):
+        if (opt1 == 0 and opt2 == 2):
             return 1
         return 2
 
